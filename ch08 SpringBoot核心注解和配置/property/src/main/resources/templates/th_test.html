@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${msg}">下午好！</h1>
+<hr>
+<h1>歌手的信息</h1>
+姓名：<span th:text="${singer.name}"></span><br>
+年龄：<span th:if="${singer.age > 40}">
+    <span>中年男子</span>
+</span><br>
+
+地址：<span th:each="cy : ${singer.city}">
+    <span th:text="${cy}"></span>
+
+</span>
+</body>
+</html>

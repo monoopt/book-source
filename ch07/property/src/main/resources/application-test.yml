@@ -1,8 +1,0 @@
-server:
-  port: 9000
-singer:
-  name: 李克勤
-  age: 50
-  city: ['广州','深圳']
-net:
-  ip: 172.16.1.100

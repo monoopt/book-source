@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jstl">
+    <CLASSES>
+      <root url="jar://E:/电子科技大学中山学院/2020上半年/Java ee 应用与开发/第1-5章/视频内容/jakarta-taglibs-standard-1.1.2/lib/jstl.jar!/" />
+      <root url="jar://E:/电子科技大学中山学院/2020上半年/Java ee 应用与开发/第1-5章/视频内容/jakarta-taglibs-standard-1.1.2/lib/standard.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

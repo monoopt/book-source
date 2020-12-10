@@ -1,39 +1,27 @@
 package com.javaee.mybatis.crud.dao;
 
-import com.javaee.mybatis.crud.domain.Student;
+import com.javaee.mybatis.crud.domain.Teacher;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 @Mapper
-public interface StudentMapper {
-    //查询所有学生
-    @Select("select * from student")
-    public List<Student> listAll();
+public interface TeacherMapper {
+    //查询所有
+    public List<Teacher> listAll();
 
-    //根据id查询学生
-    @Select("select * from student where id=#{id}")
-    public Student getById(Long id);
+    //根据id查询
+    public Teacher getById(Long id);
 
     //新增记录
-    @Insert("insert into student(student_no, name, enroll_time, home_address, class_no, sex, birthday) " +
-            "values(#{studentNo}, #{name},#{enrollTime},#{homeAddress},#{classNo},#{sex},#{birthday})")
-    @Options(useGeneratedKeys = true, keyProperty = "id") //返回自增主键,并保存在id属性中
-    public int add(Student student);
+    public int add(Teacher  teacher);
 
     //删除记录
-    @Delete("delete from student where id=#{id}")
     public int delete(Long id);
 
-    //更新学生信息
-    @Update("update student set home_address=#{homeAddress}, class_no=#{classNo} where id=#{id}")
-    public int update(Student student);
+    //更新信息
+    public int update(Teacher teacher);
 
-    //根据姓名查询
-    @Select("select * from student where name=#{name}")
-    public List<Student> listByName(String name);
-
-    //根据地址模糊查询
-    @Select("select * from student where home_address like Concat('%', #{homeAddress}, '%')")
-    public List<Student> listLikeAddress(String homeAddress);
+    //模糊查询
+    public List<Teacher> listLikeName(String name);
 }

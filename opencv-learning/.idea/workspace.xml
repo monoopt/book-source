@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5b7a1969-44cd-486e-8d6e-ec6a22a40957" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1jBwA3RWmH7UnYQAfafOYhjKEEl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.345977" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.OpenCVTester">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.Main" />
+      <module name="opencv-learning" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OpenCVTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.OpenCVTester" />
+      <module name="opencv-learning" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.OpenCVTester" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5b7a1969-44cd-486e-8d6e-ec6a22a40957" name="Default Changelist" comment="" />
+      <created>1603290647888</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603290647888</updated>
+      <workItem from="1603290649224" duration="4991000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="671" y="278" key="#Project_Structure" timestamp="1603350241437">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="671" y="278" key="#Project_Structure/0.0.1792.1120@0.0.1792.1120" timestamp="1603350241437" />
+    <state x="959" y="359" key="#Project_Structure/0.23.2560.1353@0.23.2560.1353" timestamp="1603291372143" />
+    <state x="997" y="572" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603292025466">
+      <screen x="0" y="23" width="2560" height="1353" />
+    </state>
+    <state x="997" y="572" key="#com.intellij.fileTypes.FileTypeChooser/0.23.2560.1353@0.23.2560.1353" timestamp="1603292025466" />
+    <state width="1750" height="317" key="GridCell.Tab.0.bottom" timestamp="1603454073197">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/-2560.23.2560.1417/0.23.1792.1033@-2560.23.2560.1417" timestamp="1603342792715" />
+    <state width="1750" height="317" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1603454073197" />
+    <state width="1750" height="282" key="GridCell.Tab.0.bottom/0.23.1792.1033@0.23.1792.1033" timestamp="1603349846976" />
+    <state width="2051" height="282" key="GridCell.Tab.0.bottom/0.23.2560.1353@0.23.2560.1353" timestamp="1603291781919" />
+    <state width="1750" height="317" key="GridCell.Tab.0.center" timestamp="1603454073196">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.center/-2560.23.2560.1417/0.23.1792.1033@-2560.23.2560.1417" timestamp="1603342792714" />
+    <state width="1750" height="317" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1603454073196" />
+    <state width="1750" height="282" key="GridCell.Tab.0.center/0.23.1792.1033@0.23.1792.1033" timestamp="1603349846975" />
+    <state width="2051" height="282" key="GridCell.Tab.0.center/0.23.2560.1353@0.23.2560.1353" timestamp="1603291781918" />
+    <state width="1750" height="317" key="GridCell.Tab.0.left" timestamp="1603454073196">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.left/-2560.23.2560.1417/0.23.1792.1033@-2560.23.2560.1417" timestamp="1603342792713" />
+    <state width="1750" height="317" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1603454073196" />
+    <state width="1750" height="282" key="GridCell.Tab.0.left/0.23.1792.1033@0.23.1792.1033" timestamp="1603349846975" />
+    <state width="2051" height="282" key="GridCell.Tab.0.left/0.23.2560.1353@0.23.2560.1353" timestamp="1603291781918" />
+    <state width="1750" height="317" key="GridCell.Tab.0.right" timestamp="1603454073197">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.right/-2560.23.2560.1417/0.23.1792.1033@-2560.23.2560.1417" timestamp="1603342792714" />
+    <state width="1750" height="317" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1603454073197" />
+    <state width="1750" height="282" key="GridCell.Tab.0.right/0.23.1792.1033@0.23.1792.1033" timestamp="1603349846976" />
+    <state width="2051" height="282" key="GridCell.Tab.0.right/0.23.2560.1353@0.23.2560.1353" timestamp="1603291781919" />
+    <state x="972" y="416" key="SettingsEditor" timestamp="1603291292700">
+      <screen x="0" y="23" width="2560" height="1353" />
+    </state>
+    <state x="972" y="416" key="SettingsEditor/0.23.2560.1353@0.23.2560.1353" timestamp="1603291292700" />
+    <state x="264" y="223" key="new project wizard" timestamp="1603350275506">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="264" y="223" key="new project wizard/0.0.1792.1120@0.0.1792.1120" timestamp="1603350275506" />
+    <state x="1136" y="490" key="search.everywhere.popup" timestamp="1603291377702">
+      <screen x="0" y="23" width="2560" height="1353" />
+    </state>
+    <state x="1136" y="490" key="search.everywhere.popup/0.23.2560.1353@0.23.2560.1353" timestamp="1603291377702" />
+  </component>
+</project>

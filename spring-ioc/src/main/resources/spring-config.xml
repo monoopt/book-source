@@ -5,5 +5,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <bean id="greeting" class="com.springioc.demo.xml.EnglishGreeting"></bean>
+    <bean id="robot" class="com.springioc.demo.xml.Robot">
+        <property name="price" value="90000"/>
+        <property name="name" value="90000"/>
+        <property name="greeting" ref="greeting"/>
+    </bean>
+
+<!--    添加自动扫描配置-->
+    <context:annotation-config/>
+    <context:component-scan base-package="com.springioc.demo.autoscan"/>
 </beans>
 

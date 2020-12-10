@@ -1,0 +1,8 @@
+server:
+  port: 9000
+singer:
+  name: 王菲
+  age: 50
+  city: ['广州','深圳']
+net:
+  ip: ["广州","深圳"]
