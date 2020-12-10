@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间 -->
+<mapper namespace="com.javaee.mybatis.relations.TicketMapper">
+    <!--根据票据编号获取票据信息 -->
+    <select id="findById" resultMap="TicketWithUser">
+        select * from ticket where id=#{id}
+    </select>
+
+    <!-- 添加票据信息 -->
+    <insert id="insert" parameterType="Ticket" useGeneratedKeys="true" keyProperty="id">
+
+    </insert>
+    <!--进行模糊查询-->
+
+    <!--动态查询-->
+    <select id="listLikeSubjectAndType" parameterType="String"
+            resultType="Ticket">
+
+    </select>
+
+
+    <!--    定义一个ResultMap 封装查询结果-->
+    <resultMap id="TicketWithUser" type="Ticket">
+<!--        票据对象的主键-->
+        <id property="id" column="id"/>
+        <association property="user" column="user_id"  javaType="User"
+                     select="com.javaee.mybatis.relations.mapper.UserMapper.getById"/>
+    </resultMap>
+
+
+</mapper>
