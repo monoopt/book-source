@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间 -->
+<mapper namespace="com.javaee.mybatis.relations.mapper.CourseMapper">
+    <!--    定义一个ResultMap 封装查询结果-->
+    <resultMap id="CourseDetails" type="Course">
+        <id property="id" column="id"/>
+        <association property="teacher" column="teacher_id"
+                     javaType="Teacher"
+                     select="com.javaee.mybatis.relations.mapper.TeacherMapper.getById"/>
+    </resultMap>
+
+    <!--查询课程详情-->
+    <select id="getDetailsById" resultMap="CourseDetails">
+                select * from  course where  id=#{id}
+    </select>
+
+<!--    使用连表查询-->
+    <select id="getCourseWithTeacherById" resultMap="CourseWithTeacher">
+       select c.*, t.* from course c left join teacher t on c.teacher_id = t.id where  c.id=#{id}
+    </select>
+
+    <resultMap id="CourseWithTeacher" type="Course">
+        <id property="id" column="id"/>
+        <result property="courseName" column="course_name"/>
+        <result property="credit" column="credit"/>
+        <result property="semester" column="semester"/>
+         <association property="teacher" javaType="Teacher">
+             <result property="id" column="id"/>
+             <result property="name" column="name"/>
+             <result property="office" column="office"/>
+             <result property="email" column="email"/>
+             <result property="cellphone" column="cellphone"/>
+         </association>
+    </resultMap>
+</mapper>

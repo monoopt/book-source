@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间 -->
+<mapper namespace="com.javaee.mybatis.relations.mapper.TeacherMapper">
+    <select id="getById" resultType="com.javaee.mybatis.relations.domain.Teacher">
+        select * from teacher where id=#{id}
+    </select>
+
+<!--教师对课程对1对多查询结果集映射-->
+    <resultMap id="Teacher_Course" type="Teacher">
+        <id property="id" column="id"/>
+        <id property="name" column="name"/>
+        <id property="office" column="office"/>
+        <id property="email" column="email"/>
+        <id property="cellphone" column="cellphone"/>
+        <id property="age" column="age"/>
+        <collection property="courseList" ofType="Course">
+            <id property="id" column="id" />
+            <id property="courseName" column="course_name"/>
+            <id property="credit" column="credit"/>
+            <id property="semester" column="semester"/>
+        </collection>
+    </resultMap>
+
+    <select id="getTeacherDetailsById" resultMap="Teacher_Course">
+        select t.*, c.* from teacher t, course c where c.teacher_id = t.id and t.id=#{id}
+    </select>
+</mapper>

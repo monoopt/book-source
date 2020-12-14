@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间 -->
+<mapper namespace="com.javaee.mybatis.crud.mapper.TeacherMapper">
+    <select id="getById" resultType="com.javaee.mybatis.crud.domain.Teacher">
+        select * from teacher where id=#{id}
+    </select>
+
+    <!--插入记录-->
+    <insert id="add"  useGeneratedKeys="true" keyProperty="id">
+        insert into teacher(name, office, age, email, cellphone) values (#{name},#{office}, #{age}, #{email},
+        #{cellphone})
+    </insert>
+
+    <delete id="delete" parameterType="Long">
+        delete from teacher where id = #{id}
+    </delete>
+
+    <select id="listAll" resultType="com.javaee.mybatis.crud.domain.Teacher">
+        select  * from  teacher
+    </select>
+
+    <!--进行模糊查询-->
+    <select id="listLikeName" resultType="com.javaee.mybatis.crud.domain.Teacher">
+        select  * from  teacher where name like Concat('%', #{name}, '%')
+    </select>
+    <update id="update">
+        update teacher set office=#{office}, age=#{age}, email=#{email}, cellphone=#{cellphone} where id=#{id}
+    </update>
+</mapper>

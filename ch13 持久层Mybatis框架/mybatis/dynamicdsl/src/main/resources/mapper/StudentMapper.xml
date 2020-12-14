@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间 -->
+<mapper namespace="com.javaee.mybatis.relations.mapper.StudentMapper">
+
+<!--教师对课程对1对多查询结果集映射-->
+    <resultMap id="Student_Score" type="Student">
+        <id property="id" column="id"/>
+        <id property="name" column="name"/>
+        <id property="studentNo" column="student_no"/>
+        <collection property="scoreList" ofType="Score">
+            <id property="id" column="id" />
+            <id property="score" column="score"/>
+            <id property="status" column="status"/>
+            <association property="course" javaType="Course">
+                <id property="id" column="id"/>
+                <id property="courseName" column="course_name"/>
+            </association>
+        </collection>
+    </resultMap>
+
+
+    <select id="getStudentWithScoresById" resultMap="Student_Score">
+        select s.*, sc.*, c.*  from  student s left join student_course sc on s.id = sc.student_id
+                                left  join course c on sc.course_id = c.id
+                                where  s.id=#{id}
+    </select>
+</mapper>
