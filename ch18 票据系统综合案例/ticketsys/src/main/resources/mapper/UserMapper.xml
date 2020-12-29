@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间 -->
+<mapper namespace="com.javaee.ticketsys.mapper.UserMapper">
+    <!--    定义一个ResultMap 封装查询结果-->
+    <resultMap id="UserWithRole" type="User">
+        <id property="id" column="id"/>
+        <result column="username" property="username"/>
+        <result column="email" property="email"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="register_ip" property="registerIp"/>
+        <result column="password" property="password"/>
+        <result column="enable" property="enable"/>
+        <!--  用户和角色的1对多关联-->
+        <collection property="roles" ofType="Role">
+            <id property="id" column="role_id"/>
+            <result column="role_name" property="roleName"/>
+        </collection>
+    </resultMap>
+
+
+
+
+    <select id="getDetailsById" resultMap="UserWithRole">
+        select *  from user u, user_role ur,role r
+        where u.id=ur.user_id and ur.role_id=r.id and u.id=#{id}
+    </select>
+
+    <select id="getDetailsByUsername" resultMap="UserWithRole">
+        select *  from user u, user_role ur,role r
+        where u.id=ur.user_id and ur.role_id=r.id and u.username=#{username}
+    </select>
+
+
+    <!--    多条件动态查询-->
+    <select id="queryUsers"  resultType="User">
+        select * from user  u
+        <where>
+            <if test="username != null and username != ''">
+                AND u.username like concat('%', #{username}, '%')
+            </if>
+            <if test="email != null and email != ''">
+                AND u.email like concat('%', #{email}, '%')
+            </if>
+            <if test="enable != null">
+                AND u.enable=#{enable}
+            </if>
+        </where>
+    </select>
+</mapper>

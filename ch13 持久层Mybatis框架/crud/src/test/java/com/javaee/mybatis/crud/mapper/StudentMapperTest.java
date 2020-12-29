@@ -1,4 +1,4 @@
-package com.javaee.mybatis.crud.dao;
+package com.javaee.mybatis.crud.mapper;
 
 import com.javaee.mybatis.crud.domain.Student;
 import org.junit.jupiter.api.Test;

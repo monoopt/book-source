@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间 -->
+<mapper namespace="com.javaee.ticketsys.mapper.TicketMapper">
+
+<!--    &lt;!&ndash; 添加票据信息 &ndash;&gt;-->
+<!--    <insert id="insert" parameterType="Ticket" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert  into ticket(user_id, subject, body, money,ticket_type, create_time,status,company_name)-->
+<!--        values(#{userId}, #{subject},#{body},#{money}, #{ticketType}, #{createTime},#{status},#{companyName})-->
+<!--    </insert>-->
+
+<!--    &lt;!&ndash;动态查询&ndash;&gt;-->
+<!--    <select id="listLikeSubjectAndType" parameterType="String"-->
+<!--            resultType="Ticket">-->
+<!--        select * from ticket where 1=1-->
+<!--        <if test="subject !=null and subject != '' ">-->
+<!--            and subject like concat('%', #{subject}, '%')-->
+<!--        </if>-->
+<!--        <if test="type != null and type!=''">-->
+<!--            and type =#{type}-->
+<!--        </if>-->
+<!--    </select>-->
+
+<!--    <select id="getTicketDetails" parameterType="Long" resultMap="Ticket_User_AttachFile">-->
+<!--        select * from ticket where id=#{id}-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash;    定义一个ResultMap 封装查询结果&ndash;&gt;-->
+<!--    <resultMap id="Ticket_User_AttachFile" type="Ticket">-->
+<!--        <id property="id" column="id"/>-->
+<!--        &lt;!&ndash;  用户对象1对1关联&ndash;&gt;-->
+<!--        <association property="user" column="user_id"-->
+<!--                     javaType="User"-->
+<!--                     select="com.zsc.ticketsys_cache.mapper.UserMapper.get"/>-->
+<!--        &lt;!&ndash;  附件对象1对多关联&ndash;&gt;-->
+<!--        <collection property="attachFiles" column="id"-->
+<!--                    ofType="AttachFile"-->
+<!--                    select="com.zsc.ticketsys_cache.mapper.AttachFileMapper.listByTicketId"/>-->
+<!--    </resultMap>-->
+
+
+</mapper>

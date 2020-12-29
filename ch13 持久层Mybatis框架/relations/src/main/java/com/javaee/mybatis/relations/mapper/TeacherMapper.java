@@ -1,27 +1,17 @@
-package com.javaee.mybatis.relations.onetoone.mapper;
+package com.javaee.mybatis.relations.mapper;
 
-import com.javaee.mybatis.relations.onetoone.domain.Teacher;
+import com.javaee.mybatis.relations.domain.Teacher;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 @Mapper
 public interface TeacherMapper {
-    //查询所有
-    public List<Teacher> listAll();
 
     //根据id查询
     public Teacher getById(Long id);
 
-    //新增记录
-    public int add(Teacher  teacher);
+    //查询教师个人信息以及所上的课程信息
+    public Teacher getTeacherDetailsById(Long id);
 
-    //删除记录
-    public int delete(Long id);
-
-    //更新信息
-    public int update(Teacher teacher);
-
-    //模糊查询
-    public List<Teacher> listLikeName(String name);
 }

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
+<!-- data-stripped="true" //-->
+
+<body>
+    <div class="row" style="margin: 30px;">
+        <div class="col-sm-10">
+            <button id="button" class="btn btn-secondary" onclick="getIdSelections();">获取选项ID
+            </button>
+
+            <button id="button" class="btn btn-success" onclick="unChecked();">取消选择
+            </button>
+
+            <button id="button" class="btn btn-primary" onclick="reload();">重新加载数据
+            </button>
+            <table id="table">
+                <!-- <thead class="thead-light"></thead> -->
+            </table>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="resources/bootstrap-table-1.16/bootstrap-table.min.js"></script>
+    <script src="resources/bootstrap-table-1.16/bootstrap-table-zh-CN.min.js"></script>
+
+    <script>
+
+        //将返回的json数据调整为表格所需的数据格式, bootstrap table渲染数据格式{total:xx,rows:[]}
+        // res为服务器返回的数据
+        function responseHandler(res) {
+            console.log(res)
+            var datas = [];
+            datas.push({ total: res.total, rows: res.rows });
+            return datas[0];
+        }
+        //动态生成操作区域的的按钮
+        // row.id为每行数据的主键
+        function opFormatter(value, row, index) {
+            var actions = [];
+            actions.push('<a class="btn btn-success btn-sm" href="javascript:void(0)" onclick="edit(\'' + row.id + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+            actions.push('<a class="btn btn-danger btn-sm " href="javascript:void(0)" onclick="remove(\'' + row.id + '\')"><i class="fa fa-remove"></i>删除</a>');
+            return actions.join('');
+        }
+        var columns = [{
+            checkbox: true
+        },
+        {
+            title: '序号',
+            formatter: function (value, row, index) {
+                return index + 1;
+            }
+
+        },
+        {
+            field: 'id',
+            title: 'ID',
+            sortable: true
+
+        },
+        {
+            field: 'name',
+            title: 'Item Name',
+            sortable: true
+        },
+
+        {
+            field: 'price',
+            title: 'Item Price',
+            sortable: true,
+            formatter: function (value, row, index) { //格式化输出
+                return '价格:' + row.price + '美元';
+            }
+        },
+        {
+            title: '操作',
+            align: 'center',
+            formatter: opFormatter
+        }
+        ];
+
+        //和后台交互的查询参数对象
+        function queryParams(params) {
+            var params = {
+                pageSize: params.limit,                         //页面大小
+                pageNum: (params.offset / params.limit) + 1,   //页码
+                orderColumn: params.sort,        //排序列名  
+                sortOrder: params.order    //排序命令（desc，asc） 
+            };
+            params['keyword'] = "test";  // 传入查询分页中的关键词或者查询对象
+            console.log(params);
+            return params;
+        }
+
+
+        //获取table对象
+        var table = $('#table');
+
+        $(function () {
+            var prefix = "./"
+            //定义表格的相关属性
+            var options = {
+                //  locale: $('#locale').val(),
+                height: 600,    //表格高度
+                pagination: true,  // 启动分页
+                sortable: true,   //启动排序
+                pageList: "[5,10, 25, All]",  //每页显示的数量
+                pageSize: 6,    //默认每页的记录数
+                striped: true,   //间隔显示颜色
+                url: prefix+"data/data2.json",
+                // methods:get ,
+                responseHandler: responseHandler,  //处理服务器返回的数据格式
+                sidePagination: 'server',  //服务器分页则修改为server
+                clickToSelect: true,     //单击行进行选择
+                multipleSelectRow: true,   //允许多选
+                pageNumber: 1,            //默认页面为第一页
+                queryParams: queryParams,  //与服务器交互的查询参数
+                theadClasses:'', //设置表头样式，thead-light,thead-dark,''
+                columns: columns           //设置每列的字段内容
+            }
+            table.bootstrapTable('destroy').bootstrapTable(options);
+            //$('#table').init(options);//初始化表格
+
+        });
+
+        //编辑记录
+        function edit(id) {
+            alert("编辑记录" + id);
+        }
+        //删除记录
+        function remove(id) {
+            alert("删除记录" + id);
+        }
+
+        //获取复选框的记录id
+        function getIdSelections() {
+            var ids = [];
+            for (let r of table.bootstrapTable('getSelections')) {
+                ids.push(r.id);
+            }
+            alert(ids);
+            return ids;
+        }
+
+        //取消所有选择项
+        function unChecked() {
+            table.bootstrapTable('uncheckAll');
+        }
+
+        // 更新表格数据内容
+        function reload() {
+            //使用getJson方法获取对应的json文件数据
+            $.getJSON(
+                "data/data3.json",
+                function (data) {
+                    table.bootstrapTable('load', data);
+                }
+            )
+        }
+    </script>
+</body>
+
+</html>

@@ -24,7 +24,7 @@ spring:
       #配置Mybatis的相关属性
 mybatis:
   mapper-locations: classpath:mapper/*.xml #指定mapper XML文件的位置
-  type-aliases-package: com.javaee.mybatis.relations.domain  #指定实体类的别名的映射路径
+  type-aliases-package: com.javaee.mybatis.dynamicsql.domain  #指定实体类的别名的映射路径
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  #打印输出SQL语句
     map-underscore-to-camel-case: true   # 启动驼峰式转换

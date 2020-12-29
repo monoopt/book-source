@@ -10,7 +10,7 @@ public class Teacher {
     Long id;
     String name;
     String office;
-    Short age;
+    Integer age;
     String email;
     String cellphone;
 }

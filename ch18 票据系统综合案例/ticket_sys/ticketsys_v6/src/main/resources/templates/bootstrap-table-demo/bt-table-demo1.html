@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!--    引入相关css文件-->
+    <link href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<!-- data-stripped="true" //-->
+<body>
+<div style="margin:20px">
+    <table id="table" class="table-striped" data-toggle="table"
+           data-sort-class="table-active"
+           data-sortable="true"
+           data-server-sort="true"
+           data-side-pagination="client"
+           data-pagination="true"
+           data-height="400"
+           data-page-list="[5,10, 25, All]"
+           data-url="data/data1.json">
+        <thead class="thead-dark">
+        <tr>
+            <th data-field="id" data-sortable="true">ID</th>
+            <th data-field="name" data-sortable="true">Item Name</th>
+            <th data-field="price">Item Price</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<!--    引入相关js文件-->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="resources/bootstrap-table-1.16/bootstrap-table.min.js"></script>
+
+<script>
+
+</script>
+</body>
+
+</html>

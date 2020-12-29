@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/layout::head">
+</head>
+<body>
+<!--导航栏-->
+<header th:replace="fragments/layout::header">
+</header>
+<!--页面主体-->
+<main class="container-fluid main">
+    <div class="row">
+        <!--    侧边菜单栏-->
+        <aside th:replace="fragments/layout::side_menu"></aside>
+        <div class="col-md-10">
+            <!--            页面主要内容-->
+            <!--面包屑-->
+            <div class="breadcrumb bg-white" style="margin-bottom: 0">
+                <a class="breadcrumb-item" href="#"><i class="fa fa-dashboard fa-fw"></i>主页</a>
+                <a class="breadcrumb-item" href="#">用户管理</a>
+            </div>
+            <!--用户搜索-->
+            <div class="card">
+                <!--                <h5 class="card-header">用户搜索</h5>-->
+                <div class="card-header">
+                    <form id="userSearchForm" action="#" method="post">
+                        <div class="form-inline">
+                            <input type="text" class="form-control col-md-3 mb-2 mr-sm-2"
+                                   name="username"
+                                   placeholder="用户名">
+                            <input type="text" class="form-control col-md-3 mb-2 mr-sm-2"
+                                   name="email"
+                                   placeholder="Email地址">
+                            <label for="inlineFormCustomSelectPref" class="mb-2 mr-sm-2">状态</label>
+                            <select class="custom-select mb-2 mr-sm-2 col-md-2" name="enable"
+                                    id="inlineFormCustomSelectPref">
+                                <option selected value="">选择</option>
+                                <option value="1">激活</option>
+                                <option value="0">禁用</option>
+                            </select>
+                            <button type="button" onclick="searchUser();"
+                                    class="btn btn-primary mb-2 mr-sm-2">查找
+                            </button>
+                            <button type="button" onclick="clearResult();"
+                                    class="btn btn-success mb-2 mr-sm-2">返回
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card-body">
+                    <div style="margin-bottom: 6px">
+                        <!--            内容显示主要面板-->
+
+                        <a id="button2" class="btn btn-primary" onclick="unChecked();" href="#"><i
+                                class="fa fa-undo"></i>取消选择
+                        </a>
+                        <a id="buttonActive" class="btn btn-success" onclick="batchOps('active');"
+                           href="#">激活
+                        </a>
+                        <a id="buttonUnactive" class="btn btn-secondary" onclick="batchOps('deactive');"
+                           href="#">停用
+                        </a>
+                        <a class="btn btn-danger" onclick="batchOps('delete');" href="#">批量删除</a>
+                        <a class="btn btn-info" onclick="batchOps('resetPassword');" href="#">重置密码</a>
+                        <button id="addUserBtn" class="btn btn-warning" data-toggle="modal"
+                                data-target="#addUserModal"><i class="fa fa-plus"></i> 添加用户
+                        </button>
+                    </div>
+                    <table id="table" class="table-striped table-bordered">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!//- 页脚--->
+<footer th:replace="fragments/layout::footer"></footer>
+
+
+<!-- Button trigger modal -->
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">-->
+<!--    Launch demo modal-->
+<!--</button>-->
+<!--添加用户弹出层-->
+<!-- Modal -->
+<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">新增用户</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="userFormContainer">
+                <form id="addUserForm" novalidate="novalidate" method="post" action="">
+                    <div class="form-group">
+                        <label for="username">用户名</label>
+                        <input type="text" class="form-control" id="username"
+                               placeholder="不能为空,至少三个字符"
+                               required="required" name="username">
+                        <div class="invalid-feedback">用户名至少3个字符以上!</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role" class="control-label">用户类型</label>
+                        <select id="role" class="custom-select" name="roles[0].id">
+                            <option value="1" selected>普通用户</option>
+                            <option value="2">管理员</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">email地址</label>
+                        <input type="email" class="form-control" id="email"
+                               placeholder="输入合法的Email地址"
+                               name="email" required="required">
+                        <div class="invalid-feedback">电子邮箱的格式不正确!</div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="addUser" onclick="addUser();">提交
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="viewUserModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-primary">用户详情</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="viewUserContainer">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--编辑用户-->
+<div class="modal fade" id="editUserModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-primary">编辑用户</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="editUserContainer">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="updateUser"
+                        onclick="updateUser();">提交
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:src="@{/site/js/user.js}"></script>
+<script th:src="@{/bootstrap4/js/jquery-ui.js}"></script>
+<script>
+    // Modal拖动
+    $(document).on("show.bs.modal", ".modal", function () {
+        // $('.modal-dialog').draggable();
+        $('#addUserModal').draggable();
+        $('#editUserModal').draggable();
+        $(this).css("overflow", "hidden");
+// 不拖动透明背景
+    });
+</script>
+</body>
+</html>

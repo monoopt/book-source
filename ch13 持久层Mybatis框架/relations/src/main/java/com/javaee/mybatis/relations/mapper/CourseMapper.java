@@ -1,27 +1,23 @@
-package com.javaee.mybatis.relations.onetoone.mapper;
+package com.javaee.mybatis.relations.mapper;
 
-import com.javaee.mybatis.relations.onetoone.domain.Teacher;
+import com.javaee.mybatis.relations.domain.Course;
+import com.javaee.mybatis.relations.domain.vo.CourseVo;
 import org.apache.ibatis.annotations.Mapper;
-
-import java.util.List;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 @Mapper
-public interface TeacherMapper {
-    //查询所有
-    public List<Teacher> listAll();
+public interface CourseMapper {
+    //1.使用assosiation查询课程详情，包括任课老师信息
+    public Course getDetailsById(@Param("id") Long id);
 
-    //根据id查询
-    public Teacher getById(Long id);
+    //使用连表查询
+    public  Course getCourseWithTeacherById(Long id);
+    //使用VO封装查询结果
+    @Select("select c.*, t.name teacher_name, t.office teacher_office, t.email teacher_email " +
+            "from course c ,teacher t where c.teacher_id = t.id and c.id=#{id} ")
+    public CourseVo getCourseVoById(Long id);
 
-    //新增记录
-    public int add(Teacher  teacher);
 
-    //删除记录
-    public int delete(Long id);
 
-    //更新信息
-    public int update(Teacher teacher);
-
-    //模糊查询
-    public List<Teacher> listLikeName(String name);
 }

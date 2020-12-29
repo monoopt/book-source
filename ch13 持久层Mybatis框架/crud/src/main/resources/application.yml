@@ -14,17 +14,17 @@ spring:
       maxActive: 20
       # 配置获取连接等待超时的时间
       maxWait: 60000
-#      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
-#      timeBetweenEvictionRunsMillis: 60000
-#      # 配置一个连接在池中最小生存的时间，单位是毫秒
-#      minEvictableIdleTimeMillis: 300000
-#      # 配置一个连接在池中最大生存的时间，单位是毫秒
-#      maxEvictableIdleTimeMillis: 900000
+      #      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      #      timeBetweenEvictionRunsMillis: 60000
+      #      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      #      minEvictableIdleTimeMillis: 300000
+      #      # 配置一个连接在池中最大生存的时间，单位是毫秒
+      #      maxEvictableIdleTimeMillis: 900000
 
       #配置Mybatis的相关属性
 mybatis:
-#  mapper-locations: classpath:mapper/*.xml #指定mapper XML文件的位置
-#  type-aliases-package: com.javaee.mybatis.crud.domain  #指定实体类的别名的映射路径
+  mapper-locations: classpath:mapper/*.xml #指定mapper XML文件的位置
+  type-aliases-package: com.javaee.mybatis.crud.domain  #指定实体类的别名的映射路径
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  #打印输出SQL语句
     map-underscore-to-camel-case: true   # 启动驼峰式转换

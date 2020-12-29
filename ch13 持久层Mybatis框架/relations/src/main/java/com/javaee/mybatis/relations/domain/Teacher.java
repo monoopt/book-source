@@ -1,6 +1,8 @@
-package com.javaee.mybatis.relations.onetoone.domain;
+package com.javaee.mybatis.relations.domain;
 
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class Teacher {
@@ -10,4 +12,5 @@ public class Teacher {
     Integer age;
     String email;
     String cellphone;
+    List<Course> courseList;
 }
