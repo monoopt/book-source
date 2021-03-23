@@ -1,13 +1,11 @@
 package com.javaee.ticketsys.service.impl;
 
 import com.javaee.ticketsys.model.bean.PageBean;
-import com.javaee.ticketsys.model.dto.UserQueryBean;
+import com.javaee.ticketsys.model.dto.UserDto;
 import com.javaee.ticketsys.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
@@ -42,10 +40,11 @@ class UserServiceImplTest {
     void queryUsers() {
         PageBean pageBean = new PageBean(1, 10, "id", "desc");
 //        UserQueryBean userQueryBean = new UserQueryBean("T", "@", 1);
-        UserQueryBean userQueryBean = new UserQueryBean();
+        UserDto userDto = null; //new UserDto();
 //        userQueryBean.setEmail("abc");
-        userQueryBean.setEnable(1);
-        userService.queryUsers(pageBean, userQueryBean);
+//        userQueryBean.setEnable(1);
+//        userDto.setEnable(3);
+        userService.query(userDto, pageBean);
 
     }
 

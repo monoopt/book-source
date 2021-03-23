@@ -18,6 +18,7 @@
         <collection property="roles" ofType="Role">
             <id property="id" column="role_id"/>
             <result column="role_name" property="roleName"/>
+            <result column="description" property="description"/>
         </collection>
     </resultMap>
 

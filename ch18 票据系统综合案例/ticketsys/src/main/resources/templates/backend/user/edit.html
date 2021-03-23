@@ -1,0 +1,39 @@
+<container xmlns:th="http://www.w3.org/1999/xhtml">
+    <form id="editUserForm" class="needs-validation" novalidate th:object="${model.user}">
+        <input type="hidden" name="id" th:value="*{id}">
+        <div class="form-group">
+            <label for="username">用户名</label>
+            <input type="text" id="username" class="form-control" name="username"
+                  th:value="*{username}" disabled>
+        </div>
+        <p>注册时间： <span th:text="*{#dates.format(createTime,'yyyy年MM月dd日HH:mm:ss')}">  </span>
+        </p>
+<!--        实现checkbox回显-->
+        <div class="form-group">
+            <th:block th:each="role : ${model.roleList}">
+                <input th:id="'role' + ${role.id}"  type="checkbox" name="roles"
+                       th:value="${role.roleName}"  th:checked="${model.userRoles.contains(role.id)}" >
+                <label th:for="'role' + ${role.id}" th:text="${role.description}"></label>
+            </th:block>
+        </div>
+        <div class="form-group">
+            <label for="email">email地址</label>
+            <input type="email" class="form-control" id="email" placeholder="输入合法的Email地址"
+                    th:value="*{email}" name="email" required="required">
+            <div class="invalid-feedback">电子邮箱的格式不正确!</div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="enable" id="inlineRadio1"
+                       value="1"  th:checked="*{enable eq 1}" />
+                <label class="form-check-label" for="inlineRadio1">激活</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="enable" id="inlineRadio2"
+                       value="0" th:checked="*{enable eq 0}" />
+                <label class="form-check-label" for="inlineRadio2">未激活</label>
+            </div>
+        </div>
+    </form>
+</container>

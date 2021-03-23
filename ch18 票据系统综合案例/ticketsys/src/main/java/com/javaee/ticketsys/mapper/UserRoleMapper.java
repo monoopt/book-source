@@ -10,4 +10,7 @@ public interface UserRoleMapper extends BaseMapper<UserRole> {
        // 删除用户对应的所有权限关联
        @Delete("delete  from user_role  where user_id=#{userId}")
        public int deleteRolesByUserId(Long userId);
+
+       //批量删除用户关联
+       public int deleteBatchUserRole(Long userIds[]);
 }

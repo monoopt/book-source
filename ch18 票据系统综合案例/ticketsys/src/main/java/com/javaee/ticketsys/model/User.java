@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 
 @Data
@@ -19,6 +20,6 @@ public class User{
     Integer enable;      //表示用户状态、status=0表示用户停用，status=1表示用户激活
 
     @TableField(exist = false)
-    List<Role> roles;
+    Set<Role> roles;
 }
 

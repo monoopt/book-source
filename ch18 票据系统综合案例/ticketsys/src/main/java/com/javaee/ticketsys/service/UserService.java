@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.pagehelper.PageInfo;
 import com.javaee.ticketsys.model.User;
 import com.javaee.ticketsys.model.bean.PageBean;
-import com.javaee.ticketsys.model.dto.UserQueryBean;
+import com.javaee.ticketsys.model.dto.UserDto;
 
 public interface UserService extends IService<User> {
     /**
@@ -40,11 +40,9 @@ public interface UserService extends IService<User> {
      *
      * @return
      */
-    public PageInfo<User> queryUsers(PageBean pageBean, UserQueryBean queryBean);
+    public PageInfo<User> query(UserDto userDto, PageBean pageBean);
 
-    public void updateStatusByIds(Long[] ids, int status);
+    public void changeStatus(Long[] ids, int status);
 
     public void deleteBatch(Long[] ids);
-
-
 }

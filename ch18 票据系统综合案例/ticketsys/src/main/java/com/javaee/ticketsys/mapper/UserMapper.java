@@ -2,7 +2,7 @@ package com.javaee.ticketsys.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.javaee.ticketsys.model.User;
-import com.javaee.ticketsys.model.dto.UserQueryBean;
+import com.javaee.ticketsys.model.dto.UserDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
 
-    public  List<User> queryUsers(UserQueryBean userQueryBean);
+    public  List<User> queryUsers(UserDto userDto);
 
     public User getDetailsById(Long id);
     public User getDetailsByUsername(String id);
