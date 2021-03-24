@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户表单</title>
+</head>
+<body>
+
+<h2>输入用户信息</h2>
+<form action="/userinfo" method="post">
+    <fieldset style="padding: 10px; width: 700px">
+        <legend>用户信息输入框</legend>
+        姓名: <input type="text" name="name" value="王一平"><br>
+        密码: <input type="password" name="password" value="123456"><br>
+
+        年龄: <input type="text" name="age" value="21"><br>
+        身高: <input type="text" name="height" value="175">cm<p>
+        电子邮箱: <input type="text" name="email" value="wangyp@163.com">
+        <p>
+            所学专业: <input type="radio" name="major" value="软件工程" checked>软件工程
+            <input type="radio" name="major" value="云计算">云计算
+            <input type="radio" name="major" value="人工智能">人工智能
+            <input type="radio" name="major" value="物联网技术">物联网技术
+        <p>
+
+
+            兴趣爱好: <input type="checkbox" name="hobby" value="篮球">篮球
+            <input type="checkbox" name="hobby" value="网球">网球
+            <input type="checkbox" name="hobby" value="足球">足球
+            <input type="checkbox" name="hobby" value="羽毛球">羽毛球
+        <p>
+
+
+            电话号码1: <input type="text" name="cellphone" value="13569899000"> <br>
+            电话号码2: <input type="text" name="cellphone" value="13569899030"> <br>
+            电话号码3: <input type="text" name="cellphone" value="13569899050"> <br>
+
+            备注: <br><textarea name="remark" cols="60" rows="8">即使没有月亮，心中也是一片皎洁。</textarea>
+        <p>
+            <input type="submit" value="提交">
+    </fieldset>
+</form>
+</body>
+</html>

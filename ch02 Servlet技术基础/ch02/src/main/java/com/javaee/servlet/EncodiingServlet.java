@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * 演示Servlet的编码方法，解决中文乱码问题
+ * 演示Servlet的编码方法，解决中文乱码问题,访问路径url?value=您好
  */
 @WebServlet("/encoding")
 public class EncodiingServlet extends HttpServlet {

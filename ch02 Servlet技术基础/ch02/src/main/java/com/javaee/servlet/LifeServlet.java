@@ -10,9 +10,10 @@ import java.io.IOException;
 
 @WebServlet("/life")
 public class LifeServlet extends HttpServlet {
+    static int count =0;
     @Override
     public void init() throws ServletException {
-        System.out.println(this.getServletName()+"初始化成功！");
+        System.out.println(this.getServletName()+"初始化完成，当前Servlet对象ID为:"+ this);
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,19 +21,16 @@ public class LifeServlet extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      System.out.println("处理get请求...");
-      String dstUrl = "/testform.jsp";
-//      response.sendRedirect(dstUrl);
-        String str = "今天来上课每个同学加5分";
-        request.setAttribute("msg", str);
-
-        request.getRequestDispatcher(dstUrl)
-                .forward(request,response);
+      count++;
+      System.out.println("第"+count+"次get请求,处理完成...");
+      response.setCharacterEncoding("UTF-8");
+      response.setContentType("text/html");
+      response.getWriter().println("接收到浏览器GET类型请求,处理完成！");
     }
 
     @Override
     public void destroy() {
-        System.out.println(this.getServletName()+"已经被销毁！");
+        System.out.println(this.getServletName()+"已经被销毁，ID为"+this);
     }
 }
 

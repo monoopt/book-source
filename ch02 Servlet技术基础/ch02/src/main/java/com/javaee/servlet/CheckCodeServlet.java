@@ -11,6 +11,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
 
+/**
+ * 使用Servlet生成校验码图片
+ */
 @WebServlet("/checkcode")
 public class CheckCodeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -54,17 +57,5 @@ public class CheckCodeServlet extends HttpServlet {
     }
 
 
-    // 给定范围获得一个随机颜色
-    Color getRandColor(int fc, int bc) {
-        Random random = new Random();
-        if (fc > 255)
-            fc = 255;
-        if (bc > 255)
-            bc = 255;
-        int r = fc + random.nextInt(bc - fc);
-        int g = fc + random.nextInt(bc - fc);
-        int b = fc + random.nextInt(bc - fc);
-        return new Color(r, g, b);
-    }
 
 }

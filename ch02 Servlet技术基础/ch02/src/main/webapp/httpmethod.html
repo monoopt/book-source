@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用Ajax发送HTTP请求</title>
+</head>
+<body>
+
+<h2>使用Ajax发送HTTP请求</h2>
+<button  onclick="sendGetMethod()">发送GET请求</button>
+<button  onclick="sendPostMethod()">发送POST请求</button>
+<button  onclick="sendPutMethod()">发送PUT请求</button>
+<button  onclick="sendDeleteMethod()">发送DELETE请求</button>
+<h3>服务器返回的结果:</h3>
+<div id="result" style="border:solid rebeccapurple 1px"></div>
+
+<script src="./static/jquery-3.3.1.min.js"></script>
+<script>
+    //发送get请求
+    function sendGetMethod(){
+        /*封装Ajax请求数据,json数据格式*/
+        var config={
+            method:'GET',
+            url:'/httpmethod',
+            data: 'id=123456',
+            /*请求成功后回调success函数,请求失败后回调error函数*/
+            success:function (result) {
+                document.getElementById('result').innerText = result;
+            },
+            error:function (){
+                alert("Ajax请求失败!");
+            }
+        }
+        /*发送ajax请求*/
+        $.ajax(config)
+    }
+    //发送post请求
+    function sendPostMethod(){
+        /*封装Ajax请求数据,json数据格式*/
+        var config={
+            method:'POST',
+            url:'/httpmethod',
+            data: 'username=jacky&password=123456',
+            /*请求成功后回调success函数,请求失败后回调error函数*/
+            success:function (result) {
+                document.getElementById('result').innerText = result;
+            },
+            error:function (){
+                alert("Ajax请求失败!");
+            }
+        }
+        $.ajax(config)
+    }
+    //发送put请求
+    function sendPutMethod(){
+        /*封装Ajax请求数据,json数据格式*/
+        var config={
+            method:'PUT',
+            url:'/httpmethod',
+            data: 'username=Nancy&password=123456',
+            success:function (result) {
+                document.getElementById('result').innerText = result;
+            }
+        }
+        $.ajax(config)
+    }
+    //发送delete请求
+    function sendDeleteMethod(){
+        /*封装Ajax请求数据,json数据格式*/
+        var config={
+            method:'DELETE',
+            url:'/httpmethod',
+            data: 'id=123400',
+            success:function (result) {
+                document.getElementById('result').innerText = result;
+            }
+        }
+        $.ajax(config)
+    }
+
+</script>
+</body>
+
+
+</html>
